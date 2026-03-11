@@ -945,29 +945,65 @@ button { cursor: pointer; font-family: inherit; }
   .footer-contact   { align-items: center; }
 }
 
+/* Overlay de fundo (criado via JS) */
+.nav-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 998;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition);
+  backdrop-filter: blur(2px);
+}
+.nav-overlay.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
 @media (max-width: 768px) {
-  /* Nav */
+  /* Nav – painel lateral deslizante */
   .nav-links {
     position: fixed;
-    inset: 68px 0 0 0;
-    background: rgba(15,23,42,.97);
-    backdrop-filter: blur(20px);
+    top: 0;
+    right: 0;
+    width: min(300px, 82vw);
+    height: 100svh;
+    background: #0d1627;
+    border-left: 1px solid var(--border);
+    box-shadow: -12px 0 48px rgba(0, 0, 0, 0.6);
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
-    gap: 1.5rem;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity var(--transition);
-    z-index: 998;
-  }
-  .nav-links.open {
+    gap: 0;
+    padding: 2rem 1.75rem;
+    transform: translateX(100%);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 999;
     opacity: 1;
     pointer-events: auto;
   }
+  .nav-links.open {
+    transform: translateX(0);
+  }
+  .nav-links li {
+    width: 100%;
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-links li:first-child {
+    border-top: 1px solid var(--border);
+  }
   .nav-link {
-    font-size: 1.25rem;
-    padding: 0.75rem 2rem;
+    display: block;
+    width: 100%;
+    font-size: 1.05rem;
+    font-weight: 500;
+    padding: 1rem 0.25rem;
+    color: var(--gray-dim);
+  }
+  .nav-link:hover {
+    color: var(--white);
+    background: transparent;
   }
   .btn-cta {
     display: none;
