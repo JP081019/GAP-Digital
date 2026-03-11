@@ -647,9 +647,9 @@ button { cursor: pointer; font-family: inherit; }
 }
 .proj-2::after { content: '🏥'; font-size: 4rem; display: flex; align-items: center; justify-content: center; height: 100%; }
 .proj-3 {
-  background: linear-gradient(135deg, #2d1b69 0%, #7b2d8b 50%, #e91e8c 100%);
+  background: linear-gradient(135deg, #1a4d3e 0%, #2d7a6e 50%, #3ba99a 100%);
 }
-.proj-3::after { content: '👗'; font-size: 4rem; display: flex; align-items: center; justify-content: center; height: 100%; }
+.proj-3::after { content: '🏡'; font-size: 4rem; display: flex; align-items: center; justify-content: center; height: 100%; }
 
 .project-img-wrap:hover .project-img {
   transform: scale(1.07);
